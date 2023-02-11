@@ -1,0 +1,16 @@
+.body {
+    background-image: url(https://cdn.dribbble.com/users/542979/screenshots/3000076/sarah-working-on-computer.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vw;
+    color: aliceblue;
+}
+
+.logoutImg {
+    width: 6vw;
+    height: 6vw;
+    margin-top: 5vw;
+    margin-left: 45%;
+    position: relative;
+    border-radius: 50%;
+}

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.81ec4cbe.css",
+    "main.js": "/static/js/main.9c62dde2.js",
+    "static/js/787.aa09f29c.chunk.js": "/static/js/787.aa09f29c.chunk.js",
+    "static/media/Double Ring-3s-204px.gif": "/static/media/Double Ring-3s-204px.e5db3b074f11cfcb9b7e.gif",
+    "index.html": "/index.html",
+    "main.81ec4cbe.css.map": "/static/css/main.81ec4cbe.css.map",
+    "main.9c62dde2.js.map": "/static/js/main.9c62dde2.js.map",
+    "787.aa09f29c.chunk.js.map": "/static/js/787.aa09f29c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81ec4cbe.css",
+    "static/js/main.9c62dde2.js"
+  ]
+}
