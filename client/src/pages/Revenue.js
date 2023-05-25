@@ -27,7 +27,7 @@ export const Revenue = () => {
         <>
             <h2
                 style={{ textAlign: "center", marginTop: "3vh", fontFamily: "'Ubuntu', sans-serif", fontWeight: "bolder" }}>
-                TODAY'S REVENUE IS:
+                TODAY'S REVENUE OF TOP 5 SALES IS:
             </h2>
             <div className='d-flex justify-content-center'>
                 <input type="number" value={totalRevenue} readOnly className='fw-bolder text-center fs-4' />

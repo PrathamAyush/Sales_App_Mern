@@ -15,7 +15,7 @@ export const Register = () => {
         try {
             fetch("http://localhost:3200/register", {
                 method: "POST",
-                headers: { "Content-Type": "application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ firstName, lastName, email, password })
             })
                 .then((response) => {
@@ -84,7 +84,7 @@ export const Register = () => {
                     </button>}
 
                  <input type="submit" value="Submit" className='btn btn-primary mt-3 mb-3' />  */}
-                 
+
                     {loading ? (
                         <button className="btn btn-primary mt-3 mb-3" type="submit" disabled>
                             <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

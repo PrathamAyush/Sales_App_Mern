@@ -12,7 +12,7 @@ export const AddSales = () => {
 
         const { productName, quantity, amount } = salesData
         try {
-           await fetch("http://localhost:3200/addSales", {
+            await fetch("http://localhost:3200/", {
 
                 method: 'POST',
                 headers: {
@@ -24,10 +24,10 @@ export const AddSales = () => {
             })
                 .then((response) => {
                     if (response.ok) {
-                     
+
                         return response.json();
                     } else {
-                       
+
                         throw new Error("User Not Register")
                     }
                 })
@@ -38,7 +38,7 @@ export const AddSales = () => {
                         text: 'Sales Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Add More!'
-                      })
+                    })
                 }).catch((err) => {
                     if (err) {
                         Alerter.fire({

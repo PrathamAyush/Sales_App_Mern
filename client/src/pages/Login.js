@@ -16,7 +16,7 @@ export const Login = () => {
         setloading(true)
 
         try {
-            fetch("http://localhost:3200/", {
+            fetch("http://localhost:3200/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password })
@@ -30,18 +30,20 @@ export const Login = () => {
                     }
 
                 }).then((found) => {
+
                     localStorage.setItem("token", found.result.token)
                     localStorage.setItem("user", JSON.stringify(found.result.user))
+
                     Alerter.fire({
                         title: 'Success!',
                         text: 'Your login was successful.',
                         icon: 'success',
                         confirmButtonText: 'OK',
-                        
+
                     }).then((result) => {
                         if (result.isConfirmed) {
                             setloading(false);
-                            window.location.href = "/addSales";
+                            window.location.href = "/";
                         }
                     });
 
@@ -74,18 +76,21 @@ export const Login = () => {
 
         <>
             <h2 className='text-center fw-bold' style={{ fontFamily: "'Ubuntu', sans-serif", marginTop: "3vh" }}>LOGIN FORM</h2>
+
             <div className='container border mb-3' style={{ fontFamily: "'Ubuntu', sans-serif" }}>
+
                 <form className='d-flex flex-column justify-content-start' onSubmit={handleLogin}>
 
                     <label htmlFor="email" className='mt-3 text-muted'>Email</label>
+
                     <input type="email" name='email' className='mt-2' placeholder='example@email.com' required
                         value={login.email} onChange={(e) => setLogin({ ...login, email: e.target.value })} />
 
                     <label htmlFor="password" className='mt-3 text-muted'>Password</label>
+
                     <input type="password" name='password' className='mt-2' placeholder='password' required
                         value={login.password} onChange={(e) => setLogin({ ...login, password: e.target.value })} />
 
-                    {/* <input type="submit" value="LOGIN" className='btn btn-primary mt-3 mb-3' /> */}
 
                     {loading ? (
                         <button className="btn btn-primary mt-3 mb-3" type="submit" disabled>

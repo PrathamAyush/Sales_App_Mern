@@ -5,9 +5,9 @@ export const TopSales = () => {
     const [sales, setSales] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3200/topSales",{
-            method:"GET",
-            headers:{"Authorization":"Bearer " + localStorage.getItem("token")}
+        fetch("http://localhost:3200/topSales", {
+            method: "GET",
+            headers: { "Authorization": "Bearer " + localStorage.getItem("token") }
         })
             .then((response) => {
                 if (!response.ok) {
@@ -16,7 +16,7 @@ export const TopSales = () => {
                         text: 'Failed To Fetch Or Login First',
                         icon: 'error',
                         confirmButtonText: 'Cool'
-                      }));
+                    }));
                 }
                 return response.json();
             })
@@ -27,9 +27,9 @@ export const TopSales = () => {
 
     return (
         <>
-            <h2 style={{ textAlign: "center", marginTop: "3vh", fontFamily: "'Ubuntu', sans-serif" }}>TOP 5 SALES</h2>
+            <h2 style={{ textAlign: "center", marginTop: "3vh", fontFamily: "'Ubuntu', sans-serif" }}>TODAY'S TOP 5 SALES</h2>
             <div className='container border mt-2' style={{ fontFamily: "'Ubuntu', sans-serif" }}>
-                <table className="table mt-1">
+                <table className="table mt-1 ">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -40,10 +40,15 @@ export const TopSales = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {sales && sales.map((sales,index) => (
+                        {sales && sales.map((sales, index) => (
                             <tr key={index}>
-                                <td>{index+1}</td>
-                                <td>{sales._id}</td>
+                                <td>{index + 1}</td>
+                                <td>
+                                    <input type="text" style={{
+                                        width: "50%",
+                                        backgroundColor: "transparent", border: "none"
+                                    }} value={sales._id} readOnly />
+                                </td>
                                 <td>{sales.productName}</td>
                                 <td>{sales.quantity}</td>
                                 <td>{sales.amount}</td>
