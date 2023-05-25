@@ -5,7 +5,7 @@ const mongo = require("mongoose");
 const userModel = mongo.model("userModel");
 
 module.exports = (req, res, next) => {
-    const {authorization}  = req.headers;
+    const { authorization } = req.headers;
     //bearer 
     if (!authorization) {
         return res.status(401).json({ error: "Unauthorized Access not Alowed" })

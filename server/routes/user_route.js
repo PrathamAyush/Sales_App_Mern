@@ -38,7 +38,7 @@ router.post("/register", (req, res) => {
 });
 
 //Login API
-router.post("/", (req, res) => {
+router.post("/login", (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
         return res.status(400).json({ err: "Fill all the mandatory Fields" });

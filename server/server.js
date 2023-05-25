@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 3200;
+const path = require("path")
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const mongo = require("mongoose")
@@ -14,10 +15,10 @@ app.use(cors());
 //making connection to MongoDB Database
 mongo.set('strictQuery', false)//this code for preventing deprecation msg from teminal
 mongo.connect(MONGO_URL)
-mongo.connection.on("connected",()=>{
-    if("connected"){
+mongo.connection.on("connected", () => {
+    if ("connected") {
         console.log("DB Connected")
-    }else{
+    } else {
         console.log("not Connected");
     }
 })
@@ -28,6 +29,13 @@ require("./models/sales_model")
 //importing user_route for prforming APIs requests 
 app.use(require("./routes/user_route"))
 app.use(require("./routes/sales_route"))
+
+
+//requiring static page for deployement
+app.use(express.static(path.join(__dirname, "./client/build")))
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"))
+})
 
 //For testing perpose
 app.get("/", (req, res) => {
